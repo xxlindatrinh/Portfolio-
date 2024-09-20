@@ -1,0 +1,634 @@
+@font-face {
+    font-family: 'Helvetica';
+    src: url('fonts/HelveticaCE-Medium.woff2') format('woff2'),
+         url('fonts/HelveticaCE-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    font-family: 'helvetica', sans-serif; /* Set default font to Inter for readability */
+    overflow-x: hidden; /* Prevents horizontal scroll */
+	background-color: #FFF8CE;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Unbounded', sans-serif; /* Use Unbounded for headings */
+	margin: 0;
+	padding-top: 20px;
+	padding-left :20px;
+	padding-right: 20px;
+}
+
+p {
+	font-size: 16px;
+	line-height: 1.9; /* Adjust this value as needed */
+	padding: 20px;
+}
+
+.hero-image .about-me {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 99;
+}
+
+.hero-image .about-me label {
+    font-size: 26px;
+    color: #000;
+    display: block;
+}
+
+.hero-image {
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url(img/background_desktop.png);
+    display: table;
+    background-position: center;
+}
+
+.about-me {
+	display: flex;
+	flex-direction: column; /* Stack the h1 and p vertically */
+	justify-content: center;
+	max-width: 780px;
+}
+
+.about-me p {
+	margin: 0;
+	padding: 0; /* Remove padding to avoid extra space */
+	text-align: left; /* Ensure text is aligned to the left */
+}
+
+/* Smooth Bounce Animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate(-50%, 0);
+    }
+    40% {
+        transform: translate(-50%, -15px); /* Bounce height */
+    }
+    60% {
+        transform: translate(-50%, -8px); /* Return height */
+    }
+}
+
+#down-arrow {
+    position: fixed; /* Fixes the icon to the viewport */
+    bottom: 0; /* Positions it at the very bottom of the viewport */
+    left: 50%; /* Centers the icon horizontally */
+    transform: translateX(-50%); /* Adjusts to center the icon */
+    text-align: center; /* Centers the icon within the div */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    animation: bounce 3s ease-in-out infinite; /* Duration set to 5 seconds */
+}
+
+#down-arrow img{
+	object-fit: contain;
+	max-height: 50px;
+}
+	
+/*------------------------------------------------ navbar -------------------------------------------*/
+.navbar {
+	display: table;
+	width: 100%;
+	position: fixed;
+	z-index: 99;
+	transition: transform 0.3s ease; /* Smooth transition */
+}
+	
+.navbar .nav-bar ul li {
+    display: block;
+}
+
+.navbar .nav-bar ul {
+    padding: 0;
+    display: table;
+    text-align: center;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items: center;
+    margin: 0;
+}
+
+.navbar .nav-bar ul li a {
+	font-size: 18px;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	color: #000;
+	padding: 18px;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+	position: relative;
+	letter-spacing: 1px; /* Adjust the value as needed */
+}
+
+.navbar a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;  /* Make sure it covers the entire width */
+	top: 15%;
+	bottom: 0;
+	height: 100%; /* Cover the height of the text */
+	background-color: #FFF8CE; /* Background color for the hover effect */
+	border-radius: 8px; /* Rounded corners */
+	z-index: -1; /* Put it behind the text */
+	transform: scaleX(0); /* Start with a scale of 0 on X-axis */
+	transform-origin: left; /* Animate from left to right */
+	transition: transform 0.4s ease-in-out; /* Smooth transition */
+}
+	
+.navbar a:hover::after {
+	transform: scaleX(1); /* Expand to full width when hovered */
+}
+
+.nav-bar {
+    text-align: center;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items: center;
+    position: relative;
+}
+.navbar button.menu-btn {
+    display:none;
+}
+
+/* ---------------------------------------------- kompetencer ---------------------------------------- */
+
+#kompetencer {
+    display: flex;
+    flex-direction: column; /* Ensure the heading is above other items */
+    color: #fff;
+    background-color: #354A36;
+    text-align: center;
+    justify-content: center;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.kompetencer,
+#ux-design,
+#wedesign {
+    display: flex;
+    height: 350px;
+    background-color: #FFF8CE;
+    gap: 30px; 
+    justify-content: center;
+}
+
+#ux-design div {
+    height: 350px; 
+    width: 200px;
+}
+
+.kompetencer h4 {
+    padding-top: 10px;
+}
+
+.kompetencer p,
+#ux-design p {
+    font-size: 14px;
+    padding: 2px; 
+}
+
+/* Style all images */
+.kompetencer img {
+    max-width: 80%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+#ux-design img {
+    max-height: 120px;
+    max-width: 80%;
+}
+
+.flex-kompetencer {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Images 1 to 3 (keep original size) */
+#img1, #img2, #img3 {
+    max-width: 100%;
+    max-height: 70%;
+}
+
+/* Images 4 to 7 (smaller size) */
+#img4 img {
+    max-height: 150px; /* Prevent overflow */
+}
+
+#img5 img {
+    max-width: 85%;
+}
+
+#img6 img,
+#img7 img {
+    padding-top: 10px;
+    max-height: 132px; /* Adjust for better fit */
+}
+
+#img6 h4,
+#img7 h4 {
+    padding-top: 12px;
+    max-height: 70%;
+}
+
+#img8 img {
+    max-height: 78%;
+}
+
+/* ---------------------------------------- projekter ------------------------------------------*/
+.projekter {
+	background-color: #354A36;
+	color: #fff;
+	text-align: center;
+	padding-top: 30px;
+	margin: 0;
+	overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.vis_projekter {
+	display: flex;
+	margin: 0;
+	flex-wrap: wrap; /* Allows wrapping of items to the next line */
+	justify-content: space-between; /* Distributes space between items */
+	background-color: #354A36;
+	overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.projekt-container {
+	margin: 35px;
+	display: flex;
+	flex-direction: row; /* Align video and text side by side */
+	align-items: center; /* Center items vertically */
+	gap: 15px;
+}
+
+.video-container {
+	position: relative; /* Necessary for absolute positioning of video */
+	width: 50%;
+}
+
+.video-container video {
+	max-width: 90%; /* Make the video responsive */
+	height: 80%; /* Maintain aspect ratio */
+	object-fit: contain; /* Ensure the video covers the container */
+	overflow: hidden;
+	border-radius: 15px;
+}
+
+.text-container {
+	flex: 1; /* Makes text container take up available space */
+	max-width: 50%;
+	padding: 10px; /* Add padding around the text */
+	text-align: left; /* Align text to the left */
+	background-color: #FFF8CE;
+	border-radius: 15px;
+	color: #000;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Skaber en skyggeffekt */
+}
+
+#groed video {
+	max-width: 500px;
+}
+
+/* ------------------------------------------- Profil -----------------------------------------*/
+#profil {
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+}
+
+#profil p {
+	text-align: left;
+	padding: 20px;
+	margin: 20px;
+}
+
+.professionel, .personlig {
+	display: flex;
+	flex-direction: row;
+	justify-content: center; /* Center the image horizontally */
+	align-items: center; /* Center the image vertically */
+	width: 100%; /* Ensure full width usage */
+}
+
+.professionel > div, .personlig > div {
+	width: 50%; /* Make sure both divs take 50% of the parent container */
+	padding: 10px;
+	box-sizing: border-box; /* Include padding in width calculations */
+}
+
+.img_profil {
+	display: flex;
+	justify-content: center; /* Center the image horizontally */
+	align-items: center; /* Center the image vertically */
+	height: 600px; /* Fixed height */
+}
+
+.img_profil img {
+	max-width: 550px; /* Let width adjust automatically */
+	max-height: 100%; /* Ensure the image doesn't exceed the container height */
+	object-fit: contain; /* Maintain aspect ratio, no distortion */
+	border-radius: 180px; /* Rounded corners */
+}
+
+/* ------------------------------------------ footer ----------------------------------------------*/
+.footer {
+	background-color: #354A36;
+	color: #FFF;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	padding: 30px;
+}
+
+#mig img {
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    max-height: 350px; /* You can adjust the max-width */
+	object-fit: contain;
+}
+
+#mig img:hover {
+    transform: scale(1.1) rotate(5deg); /* Zoom and rotate slightly on hover */
+}
+
+#tekst-kontakt{
+	display: flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+.socialmedie {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap:20px;
+	padding-left: 20px;
+}
+
+.socialmedie img {
+	max-height: 90px;
+    transition: transform 0.3s ease;
+}
+
+.socialmedie img:hover {
+    transform: scale(1.1);
+}
+
+
+@media only screen and (max-width: 768px){
+
+h1 {
+	font-size: 22px;
+}
+
+h2 {
+	font-size:20px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+.navbar  button.menu-btn {
+	position: absolute;
+    top: 0;
+    right: 0;
+    background-color: unset;
+    border: 0;
+    font-size: 26px;
+    display:block;
+    padding: 0px;
+	color: #000;
+    outline: none;
+} 
+.navbar{
+    height:100%;
+    z-index: 999;
+}
+.navbar .nav-bar {
+    left: -850px;
+    background-color: #354A36;
+    transition: 1s;
+    height: 100%;
+}
+
+.navbar.open-nav  .nav-bar{
+    left: 0;
+    width: 100%;
+    transition: left 0.5s;
+    height: 100%;
+}
+
+.navbar .nav-bar ul li a {
+     display: block;
+     color: #fff;
+}
+
+.navbar.open-nav button.menu-btn i:before {
+    content: '\f00d ';
+}
+
+/*----------------------------------------- landing page --------------------------------------*/
+
+.hero-image .about-me {
+    top: 35%;
+}
+
+.hero-image .about-me label {
+    font-size: 24px;
+}
+
+.hero-image {
+    background-image: url(img/background_tablet.png);
+}
+
+.about-me p {
+	margin: 0;
+	padding: 15px;
+	text-align: left; /* Ensure text is aligned to the left */
+}
+
+/*----------------------------------------- kompetencer ----------------------------------------- */
+
+#kompetencer {
+    flex-direction: column; /* Ensure the heading is above other items */
+    padding: 10px;
+}
+
+.kompetencer,
+#ux-design,
+#wedesign {
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    height: auto;
+    background-color: #FFF8CE;
+    gap: 15px; 
+    justify-content: center;
+}
+
+#ux-design div {
+    width: 400px;
+}
+
+.kompetencer h4 {
+    padding-top: 10px;
+}
+
+.kompetencer p,
+#ux-design p {
+    font-size: 14px;
+    margin: 15px;
+}
+
+/* Style all images */
+.kompetencer img {
+    max-width: 80%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+#ux-design img {
+    max-height: 120px;
+    max-width: 80%;
+}
+
+
+
+/* Images 1 to 3 (keep original size) */
+#img1, #img2, #img3 {
+    max-width: 100%;
+}
+
+/* Images 4 to 7 (smaller size) */
+#img4 img {
+    max-height: 150px; /* Prevent overflow */
+}
+
+#img5 img {
+    max-width: 85%;
+}
+
+#img6 img,
+#img7 img {
+    padding-top: 10px;
+    max-height: 132px; /* Adjust for better fit */
+}
+
+#img6 h4,
+#img7 h4 {
+    padding-top: 12px;
+    max-height: 70%;
+}
+
+#img8 img {
+    max-height: 50%;
+}
+
+/*----------------------------------------- projekter ------------------------------------------*/
+.projekter {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.projekt-container {
+	margin: 35px; /* Space between project containers */
+	margin: 25px;
+	display: flex;
+	flex-direction: column; /* Align video and text side by side */
+	gap: 10px;
+}
+
+.video-container {
+	width: 100%;
+}
+
+.video-container video {
+	max-width: 100%; /* Make the video responsive */
+	height: 90%; /* Maintain aspect ratio */
+	object-fit: contain; /* Ensure the video covers the container */
+	overflow: hidden;
+	border-radius: 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Skaber en skyggeffekt */
+}
+
+.text-container {
+	max-width: 100%;
+	padding: 0;
+}
+
+#groed video {
+	max-width: 350px;
+}
+
+/*------------------------------------------------- profil --------------------------------------------*/
+#profil {
+	width: 100%;
+	padding: 10px;
+}
+
+#profil p {
+	text-align: left;
+	padding: 10px;
+	margin: 0px;
+}
+
+.professionel, .personlig {
+	flex-direction: column;
+}
+
+.professionel > div, .personlig > div {
+	width: 100%; /* Make sure both divs take 50% of the parent container */
+	padding: 5px;
+}
+
+.img_profil {
+	height: 350px; /* Fixed height */
+}
+
+.img_profil img {
+	max-width: 300px; /* Let width adjust automatically */
+	max-height: 100%; /* Ensure the image doesn't exceed the container height */
+	border-radius: 15px; /* Rounded corners */
+}
+
+/*---------------------------------------------------- footer --------------------------------------*/
+
+.footer {
+	flex-direction: column;
+	padding: 20px;
+	
+}
+
+#mig img {
+    width: 100%;
+    height: auto;
+}
+}
+
+.socialmedie img {
+	max-height: 70px;
+}
